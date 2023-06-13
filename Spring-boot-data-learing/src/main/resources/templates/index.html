@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <h1 th:text="${title}">首页</h1>
+    <div th:each="item:${list}">
+        <h2 th:text="${item.getAuthor()}"></h2>
+        <p th:text="${item.getContent()}"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+web:
+  upload-path: D:\workstation\backing-learning\第九周\upload
+
+
+spring:
+  web:
+    resources:
+      static-locations: classpath:/static/,file:${web.upload-path}
+#      自定上传文件大小
+  servlet:
+    multipart:
+      enabled: true
+#      单个文件最大20MB
+      max-file-size: 20MB
+#      单次请求最大200MB
+      max-request-size: 200MB
+
+#      minio的配置
+minio:
+  endPoint: http://43.137.12.232:9000
+  accessKey: admin
+  secretKey: 12345678

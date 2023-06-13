@@ -1,0 +1,18 @@
+Person:
+  id: 2
+  name: xiaoming
+  hobby:
+    -play
+    -read
+    -sleep
+  family: [ father,mother ]
+  map: {k1: v1,k2: v2}
+  pet: {type: cat,name: tom}
+#  map:
+#    -k1: v1
+#    -k2: v2
+Student:
+  id: 1
+spring:
+  profiles:
+    active: dev

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>see-demo</title>
+</head>
+<body>
+  <div id="msg-box" >
+    <p >接受服务器端推送信息</p>
+  </div>
+  <script>
+      let source = null;
+    if (window.EventSource){
+        let source = new EventSource("http://localhost:8080/sse/msg")
+        //当连接正式建立时触发
+        source.onopen = (e)=>{
+            console.log(e);
+        }
+        //监听信息的传输
+        source.onmessage = (e) =>{
+            console.log(e)
+            //e.origin 服务器端URL的域名部分，有protocol，hostname，post
+            console.log(e.origin)
+            //e.data 服务器端传回数据
+            console.log(e.data)
+            document.getElementById("msg-box").innerHTML = e.data
+            if(!e.data){
+                //数据传输完毕,无数据时关闭连接
+                source.close()
+            }
+        }
+        source.onerror = (e) =>{
+            console.log(e);
+        };
+    }else{
+        alert('不支持sse')
+    }
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+context:
+  listener:
+    classes: com.wjj.event.MyListener3
